@@ -1,0 +1,14 @@
+@media (max-width: 480px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            button {
+                padding: 12px 25px;
+                min-width: 100px;
+            }
+        }

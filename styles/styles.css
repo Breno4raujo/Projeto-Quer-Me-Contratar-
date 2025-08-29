@@ -1,0 +1,102 @@
+style {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #87d3d3, #0520bb);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+        
+        .container {
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
+            width: 100%;
+            position: relative;
+        }
+        
+        h1 {
+            color: #333;
+            margin-bottom: 30px;
+            font-size: 2.2rem;
+            font-weight: 600;
+        }
+        
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+        
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            min-width: 120px;
+        }
+        
+        #sim {
+            background-color: #4CAF50;
+            color: white;
+        }
+        
+        #sim:hover {
+            background-color: #3e8e41;
+            transform: scale(1.05);
+        }
+        
+        #nao {
+            background-color: #f44336;
+            color: white;
+            position: relative;
+        }
+        
+        #nao:hover {
+            background-color: #d32f2f;
+        }
+        
+        .mensagem {
+            margin-top: 30px;
+            font-size: 1.5rem;
+            color: #4CAF50;
+            font-weight: bold;
+            min-height: 40px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+        
+        .mensagem.visible {
+            opacity: 1;
+        }
+        
+        @media (max-width: 480px) {
+            .container {
+                padding: 25px;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            button {
+                padding: 12px 25px;
+                min-width: 100px;
+            }
+        }
