@@ -25,6 +25,9 @@
             const mensagem = document.getElementById('mensagem');
             const container = document.querySelector('.container');
             
+            // Verificar se é um dispositivo touch
+            const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+
             // Função para mover o botão "Não" para uma posição aleatória
             function moverBotaoNao() {
                 const containerRect = container.getBoundingClientRect();
@@ -43,12 +46,20 @@
                 naoBtn.style.left = `${randomX}px`;
                 naoBtn.style.top = `${randomY}px`;
             }
-            
-            // Adicionar evento de clique ao botão "Não"
-            naoBtn.addEventListener('mouseover', function() {
-                // Mover o botão quando o mouse se aproximar
-                moverBotaoNao();
-            });
+
+            // Adicionar evento de clique ao botão "Não" apropriado baseado no tipo de dispositivo
+            if (isTouchDevice) {
+                // Para dispositivos touch: mover o botão quando for tocado
+                naoBtn.addEventListener('touchstart', function(e) {
+                    e.preventDefault();
+                    moverBotaoNao();
+                });
+            } else {
+                // Para dispositivos com mouse: mover o botão quando o mouse se aproximar
+                naoBtn.addEventListener('mouseover', function() {
+                    moverBotaoNao();
+                });
+            }
             
             // Adicionar evento de clique ao botão "Sim"
             simBtn.addEventListener('click', function() {
@@ -63,6 +74,13 @@
                 // Esconder os botões após a escolha
                 simBtn.style.display = 'none';
                 naoBtn.style.display = 'none';
+            });
+
+             // Também permitir clique no botão Não para dispositivos touch
+            naoBtn.addEventListener('click', function() {
+                if (isTouchDevice) {
+                    moverBotaoNao();
+                }
             });
         });
     </script>
